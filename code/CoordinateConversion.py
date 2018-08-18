@@ -49,7 +49,7 @@ def rotate_sph(theta,phi,theta0,phi0,r=1,Degree=True):
 	# second do rotate theta around y-axis
 	xtmp = z1
 	ytmp = x1
-	ztmp = y1
+	ztmp = y
 
 	rtmp,thetatmp,phitmp = xyz2sph(xtmp,ytmp,ztmp,Degree=Degree)
 	xnew,ynew,znew = sph2xyz(thetatmp,phitmp-theta0,r=rtmp,Degree=Degree)
@@ -91,8 +91,66 @@ def lb2aitoff(l,b,Degree=True):
 		y = np.sin(b) / np.sqrt(z2)
 	return x,y
 
+def radec2sag(ra,dec,Degree=True):
+""" this code is done according to 
+    the conversion by Belokurov et al 2014 437 116
+    here arctan2 returns angle from -180 to 180                             """
+    if Degree:
+        ra_tmp = ra*math.pi/180
+        dec_tmp = dec*math.pi/180
+    else:
+        ra_tmp = ra
+        dec_tmp = dec
+        
+    a11, a12, a13 = −0.93595354, −0.31910658,  0.14886895
+    a21, a22, a23 =  0.21215555, −0.84846291, −0.48487186
+    b11, b12, b13 =  0.28103559, −0.42223415,  0.86182209
+    sag_lam = np.arctan2(a11*np.cos(ra_tmp)*np.cos(dec_tmp) + \
+                         a12*np.sin(ra_tmp)*np.cos(dec_tmp) + \
+                         a13*np.sin(dec_tmp), \
+                         a21*np.cos(ra_tmp)*np.cos(dec_tmp) + \
+                         a22*np.sin(ra_tmp)*np.cos(dec_tmp) + \
+                         a23*np.sin(dec_tmp))
+    sag_bet = np.arcsin(b11*np.cos(ra_tmp)*np.cos(dec_tmp) + \
+                        b12*np.sin(ra_tmp)*np.cos(dec_tmp) + \
+                        b13*np.sin(dec_tmp))
+    n = len(ra)
+    sag_coo = np.zeros((n,2))
+    if Degree:
+        sag_coo[:,0] = sag_lam*180/math.pi
+        sag_coo[:,1] = sag_bet*180/math.pi
+    else:
+        sag_coo[:,0] = sag_lam
+        sag_coo[:,1] = sag_bet
+    return sag_coo
 
-
-
+def sag2radec(lam,bet,Degree=True):
+""" this code is done according to 
+    the conversion by Belokurov et al 2014 437 116
+    here arctan2 returns angle from -180 to 180                             """
+    if Degree:
+        lam_tmp = lam*math.pi/180
+        bet_tmp = bet*math.pi/180
+    else:
+        lam_tmp = lam
+        bet_tmp = bet
+        
+    a11,a12,a13 = −0.84846291, −0.31910658, −0.42223415
+    a21,a22,a23 =  0.21215555, −0.93595354,  0.28103559
+    b11,b12,b13 = −0.48487186,  0.14886895,  0.86182209
+    radec = np.zeros((len(lam),2))
+    radec[:,0] = np.arctan2(a11*np.cos(lam_tmp)*np.cos(bet_tmp) + \
+                            a12*np.sin(lam_tmp)*np.cos(bet_tmp) + \
+                            a13*np.sin(bet_tmp),
+                            a21*np.cos(lam_tmp)*np.cos(bet_tmp) + \
+                            a22*np.sin(lam_tmp)*np.cos(bet_tmp) + \
+                            a23*np.sin(bet_tmp))
+    radec[:,1] = np.arcsin(b11*np.cos(lam_tmp)*np.cos(bet_tmp) + \
+                           b12*np.sin(lam_tmp)*np.cos(bet_tmp) + \
+                           b13*np.sin(bet_tmp))
+    if Degree:
+        return radec*180/math.pi
+    else:
+        return radec
 
 

@@ -1,0 +1,116 @@
+J/ApJ/738/79       SDSS-DR8 BHB stars in the Milky Way's halo       (Xue+, 2011)
+================================================================================
+Quantifying kinematic substructure in the Milky Way's stellar halo.
+    Xue X.-X., Rix H.-W., Yanny B., Beers T.C., Bell E.F., Zhao G.,
+    Bullock J.S., Johnston K.V., Morrison H., Rockosi C., Koposov S.E.,
+    Kang X., Liu C., Luo A., Lee Y.S., Weaver B.A.
+   <Astrophys. J., 738, 79 (2011)>
+   =2011ApJ...738...79X
+================================================================================
+ADC_Keywords: Milky Way ; Photometry, SDSS ; Radial velocities ;
+              Stars, horizontal branch ; Stars, halo
+Keywords: galaxies: individual (Milky Way) - Galaxy: halo - Galaxy: structure -
+          stars: horizontal-branch - stars: kinematics and dynamics
+
+Abstract:
+    We present and analyze the positions, distances, and radial velocities
+    for over 4000 blue horizontal-branch (BHB) stars in the Milky Way's
+    halo, drawn from SDSS DR8. We search for position-velocity
+    substructure in these data, a signature of the hierarchical assembly
+    of the stellar halo. Using a cumulative "close pair distribution"
+    as a statistic in the four-dimensional space of sky position,
+    distance, and velocity, we quantify the presence of position-velocity
+    substructure at high statistical significance among the BHB stars:
+    pairs of BHB stars that are close in position on the sky tend to have
+    more similar distances and radial velocities compared to a random
+    sampling of these overall distributions. We make analogous mock
+    observations of 11 numerical halo formation simulations, in which the
+    stellar halo is entirely composed of disrupted satellite debris, and
+    find a level of substructure comparable to that seen in the actually
+    observed BHB star sample. This result quantitatively confirms the
+    hierarchical build-up of the stellar halo through a signature in phase
+    (position-velocity) space. In detail, the structure present in the BHB
+    stars is somewhat less prominent than that seen in most simulated
+    halos, quite possibly because BHB stars represent an older
+    sub-population. BHB stars located beyond 20kpc from the Galactic
+    center exhibit stronger substructure than at r_gc_<20kpc.
+
+File Summary:
+--------------------------------------------------------------------------------
+ FileName   Lrecl  Records   Explanations
+--------------------------------------------------------------------------------
+ReadMe         80        .   This file
+table1.dat    167     4985  *List of 4985 blue horizontal-branch (BHB) stars
+                             selected from SDSS DR8
+--------------------------------------------------------------------------------
+Note on table1.dat: BHB stars are classified by combination of D_0.2_ and
+     fm method and the scale width vs. shape method (see section 2). The
+     parameters are:
+    D_0.2_ = width of the Balmer line at 20% below the local continuum
+        fm = flux relative to the continuum at the line core,
+       b,c = parameters of the Sersic profile
+             y=1.0-a*exp[-((|{lambda}-{lambda}_0_|)/b)^c^]
+             (see Sirko et al. 2004, Cat. J/AJ/127/899;
+              Xue et al. 2008, Cat. J/ApJ/684/1143).
+     The Balmer-line profile cuts used are:
+   * for the H{delta} line: D_0.2_<=29{AA}, fm<=0.35
+   * for the H{gamma} line: 0.75<=c_{gamma}_<=1.25,
+      7{AA}<=b_{gamma}_<=10.8-26.5(c_{gamma}_-1.08)^2^
+--------------------------------------------------------------------------------
+
+See also:
+ II/306 : The SDSS Photometric Catalog, Release 8 (Adelman-McCarthy+, 2011)
+ J/A+A/522/A88   : Photometric identification of BHB stars (Smith+, 2010)
+ J/AJ/140/1694   : Abundances of non-variable red and blue HB stars (For+, 2010)
+ J/AJ/137/3198   : New samples of BHB stars in the Milky Way (Kinman+, 2009)
+ J/AJ/135/564    : Photometry and spectroscopy of BHB candidates (Brown+, 2008)
+ J/ApJ/684/1143  : BHB candidates in the Milky Way (Xue+, 2008)
+ J/AJ/130/1097   : Century Survey Galactic Halo Project BHB stars (Brown+, 2005)
+ J/AJ/127/899    : Blue HB stars in SDSS (Sirko+, 2004)
+ J/MNRAS/352/285 : u(bj)r + BV photometry of blue HB stars (Clewley+, 2004)
+ J/A+AS/109/171  : Blue horizontal branch stars catalog (Flynn+, 1995)
+ J/AJ/108/1722   : Blue horizontal branch stars (Kinman+ 1994)
+
+Byte-by-byte Description of file: table1.dat
+--------------------------------------------------------------------------------
+   Bytes Format Units   Label  Explanations
+--------------------------------------------------------------------------------
+   1-  4  I4    ---     Plate  SDSS-DR8 plate
+       5  A1    ---     ---    [-]
+   6- 10  I5    ---     MJD    SDSS modified Julian date
+      11  A1    ---     ---    [-]
+  12- 14  I3    ---     Fiber  SDSS-DR8 fiber
+  17- 26  F10.6 deg     RAdeg  Right Ascension in decimal degrees (J2000)
+  29- 38  F10.6 deg     DEdeg  Declination in decimal degrees (J2000)
+  41- 50  F10.6 deg     GLON   [0.02/359.85] Galactic longitude
+  53- 62  F10.6 deg     GLAT   [-81.32/88.37] Galactic latitude
+  65- 69  F5.2  mag     gmag   [12.6/20.1] Extinction-corrected g band magnitude
+  73- 76  F4.2  mag     u-g    (u-g) color index after extinction correction
+  79- 83  F5.2  mag     g-r    (g-r) color index after extinction correction
+  86- 90  F5.2  0.1nm   D0.2   H{delta} line width at 20% below local continuum
+  94- 97  F4.2  --      fm     H{delta} line flux relative to continuum
+                               at line core
+ 101-104  F4.2  --      cHg    The c of H{gamma} line
+ 107-111  F5.2  0.1nm   bHg    The b of H{gamma} line
+ 115-118  F4.1  kpc     d      [2.3/77.1] Distance to the Sun (1)
+ 122-125  F4.1  kpc     r      Distance to the Galactic center (1)
+ 128-132  F5.1  kpc     x      Galactocentric x-position (1)
+ 135-139  F5.1  kpc     y      Galactocentric y-position (1)
+ 142-146  F5.1  kpc     z      Galactocentric z-postiion (1)
+ 148-153  F6.1  km/s    HRV    [-476.2/456.4] Heliocentic radial velocity
+ 155-160  F6.1  km/s  e_HRV    [0.9/22.5] Error in HRV
+ 162-167  F6.1  km/s    Vgal   Galactocentric radial velocity (1)
+--------------------------------------------------------------------------------
+Note (1): Distances are derived from the magnitudes and colors as in
+     Xue et al. 2008, Cat. J/ApJ/684/1143. The positions (x,y,z) are
+     given in the Galactic Standard of Rest frame (R_{sun}_=8.0kpc);
+     velocities assume a Local Standard of Rest velocity of 220km/s
+     and a Solar motion of (+10.0,+5.2,+7.2)km/s. The distance r is
+     sqrt(x^2^+y^2^+z^2^).
+--------------------------------------------------------------------------------
+
+History:
+    From electronic version of the journal
+
+================================================================================
+(End)                 Greg Schwarz [AAS], Emmanuelle Perret [CDS]    15-Jan-2013
